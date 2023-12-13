@@ -1,0 +1,76 @@
+Goal:       The goal of this program is to read a file containing the names of students and their individual grades or scores
+            and then identify their highest and lowest scores, sort them in ascending order, and handle excpetions for neg. values
+
+Input(s):   The input for this program comes from a file called 'students_scores.txt' which includes the students' names and grades
+
+Output(s):  The program outputs the students' names, their highest and lowest score, and an assorted array in ascending order
+            The program also outputs a message for negative scores.
+
+Steps:   
+1. Include necessary libraries:
+   - Include the iostream library for input and output
+   - Include the fstream library for file handling
+   - Include the sstream library for string stream operations
+   - Include the vector library for dynamic arrays
+   - Include the algorithm library for sorting
+   - Include the stdexcept library for exception handling
+
+2. Use the "std" namespace to avoid having to use the "std::" prefix for standard library elements
+
+3. Define functions for finding maximum, minimum, and sorting:
+   - Define a function findMax that takes a pointer to an array of floats and the size of the array. It returns the maximum value in the array
+   - Define a function findMin that takes a pointer to an array of floats and the size of the array. It returns the minimum value in the array
+   - Define a function bubbleSort that takes a pointer to an array of floats and the size of the array. It sorts the array using the bubble sort algorithm
+
+4. Define the main function:
+   - Start the main function
+
+5. Create an ifstream object named "studentScores" to read from the "students_scores.txt" file
+
+6. Check if the file "students_scores.txt" opened successfully:
+   - If the file cannot be opened, print an error message to the standard error stream (cerr)
+   - Return 1 to indicate an error
+
+7. Declare a string variable "studentName" to store lines that contain students' names read from the file
+
+8. Start a loop to process each student's data in the file:
+   - Read the student's name from the file and store it in the "studentsName" variable
+   - Print "Student" followed by the student's name
+
+9. Read the line containing the student's grades from the file:
+   - Store the line in the "studentsScores" variable
+
+10. Create a stringstream object "ss" to parse the grades line
+
+11. Create a vector of floats named "grades" to store the student's grades
+
+12. Declare a float variable "grade" to temporarily store each grade while parsing
+
+13. Start a loop to parse the grades line and populate the "grades" vector:
+    - Use the stringstream to obtain a grade as a float from the line
+    - Push the obtained grade into the "grades" vector
+    - If a comma follows the grade, ignore it
+
+14. Create a pointer to float "gradesArray" that points to the data in the "grades" vector
+
+15. Get the number of grades in the "grades" vector and store it in "numGrades"
+
+16. Use a try-catch block for exception handling:
+    - Try to:
+      - Find the maximum grade using the "findMax" function
+      - Find the minimum grade using the "findMin" function
+      - Print the student's high and low scores
+      - Sort the grades using the "bubbleSort" function
+      - Print the sorted grades
+
+17. Catch any exceptions with invalid_argument and print an error message if the grades are invalid.
+
+18. Repeat the loop for the next student's data in the file.
+
+19. Close the input file.
+
+20. Return 0 to indicate successful program execution.
+
+21. End the main function.
+
+22. End the program.
